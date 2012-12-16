@@ -39,15 +39,40 @@ namespace kws
       : public CkwsBody
     {
     public:
-      /// \brief Constructor.
-      Body ();
-
       /// \brief Destructor.
       ~Body ();
-      
+
+      /// \brief Create.
+      static BodyShPtr create ();
+
+      /// \brief Create copy.
+      static BodyShPtr createCopy (const BodyConstShPtr &body);
+
+      /// \brief Clone.
+      CkwsBodyShPtr clone () const;
+
+      /// \brief Compute bounding sphere radius.
+      double getBoundingSphereRadius (const CkitPoint3& center) const;
+
+      /// \brief Collision checking.
+      bool isColliding (const CCollisionAnalysisParameters& analysisParameters,
+			double& distance);
+
     protected:
+      /// \brief Constructor.
+      explicit Body ();
+
+      /// \brief Copy constructor.
+      explicit Body (const Body& body);
+
+      /// \brief Initialize.
+      ktStatus init (const BodyWkPtr& wkPtr);
+
+      /// \brief Update body absolute position.
+      void placeBody (const CkitMat4& pos);
 
     private:
+      BodyWkPtr wkPtr_;
     };
 
   } // end of namespace fcl.

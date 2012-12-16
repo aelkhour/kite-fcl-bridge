@@ -16,7 +16,7 @@
 // License along with kws-fcl-bridge.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-/// \file src/body.cc 
+/// \file src/body.cc
 ///
 /// \brief Implementation of Body.
 
@@ -30,14 +30,85 @@ namespace kws
   namespace fcl
   {
     Body::
+    ~Body ()
+    {
+    }
+
+    BodyShPtr
+    Body::create ()
+    {
+      Body* ptr = new Body ();
+      BodyShPtr shPtr (ptr);
+
+      if (KD_OK != ptr->init(shPtr))
+	shPtr.reset();
+
+      return shPtr;
+    }
+
+    BodyShPtr
+    Body::createCopy (const BodyConstShPtr &body)
+    {
+      BodyShPtr shPtr;
+
+      if (body)
+	{
+	  shPtr.reset(new Body(*body));
+
+	  if (KD_OK != shPtr->init (shPtr))
+	    shPtr.reset();
+	}
+
+      return shPtr;
+    }
+
+    CkwsBodyShPtr
+    Body::clone () const
+    {
+      return Body::createCopy (wkPtr_.lock ());
+    }
+
+    double
+    Body::getBoundingSphereRadius (const CkitPoint3& center) const
+    {
+      // FIXME
+      return 0;
+    }
+
+    bool
+    Body::isColliding (const CCollisionAnalysisParameters& analysisParameters,
+		       double& distance)
+    {
+      return distance <= 0.;
+    }
+
+    Body::
     Body ()
-      : CkwsBody ()
+      : CkwsBody (true)
     {
     }
 
     Body::
-    ~Body ()
+    Body (const Body& body)
     {
+      // FIXME.
+    }
+
+    ktStatus Body::
+    init (const BodyWkPtr& wkPtr)
+    {
+      ktStatus result = CkwsBody::init (wkPtr);
+
+      if (KD_OK == result)
+	wkPtr_ = wkPtr;
+
+      return result;
+    }
+
+    void
+    Body::placeBody (const CkitMat4& pos)
+    {
+      // FIXME
     }
 
   } // end of namespace fcl.
