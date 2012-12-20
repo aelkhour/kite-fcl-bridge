@@ -5,7 +5,7 @@ SET(CXX_DISABLE_WERROR TRUE)
 INCLUDE(cmake/base.cmake)
 INCLUDE(cmake/boost.cmake)
 
-SET(PROJECT_NAME kws-fcl-bridge)
+SET(PROJECT_NAME kite-fcl-bridge)
 SET(PROJECT_DESCRIPTION
   "Utility package for computing best fit fcl over a polygon soup.")
 SET(PROJECT_URL "")
@@ -14,9 +14,9 @@ SET(PROJECT_URL "")
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
 SET(${PROJECT_NAME}_HEADERS
-  include/kws/fcl/fwd.hh
-  include/kws/fcl/types.hh
-  include/kws/fcl/body.hh
+  include/kite/fcl/fwd.hh
+  include/kite/fcl/types.hh
+  include/kite/fcl/body.hh
   )
 
 SETUP_PROJECT()
