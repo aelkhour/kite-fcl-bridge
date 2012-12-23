@@ -25,25 +25,7 @@
 # include <fcl/collision_data.h>
 # include <fcl/BVH/BVH_model.h>
 
-/// \def KITE_FCL_DEFINE_TYPES(T, NAME)
-///
-/// Create typedefs from class.
-///
-/// This macro defines new pointer and vector types from \a T and
-/// prefixes them with \a NAME.
-///
-/// \param T class name
-/// \param Name desired name
-# define KITE_FCL_DEFINE_TYPES(T, NAME)				\
-  typedef T NAME##_t;						\
-  typedef T* NAME##Ptr_t;					\
-  typedef boost::shared_ptr<T> NAME##ShPtr_t;			\
-  typedef boost::shared_ptr<const T> NAME##ConstShPtr_t;	\
-  typedef boost::weak_ptr<T> NAME##WkPtr_t;			\
-  typedef std::vector<T> NAME##s_t;				\
-  typedef std::vector<T*> NAME##Ptrs_t;				\
-  typedef std::vector<boost::shared_ptr<T> > NAME##ShPtrs_t;	\
-  typedef std::vector<boost::weak_ptr<T> > NAME##WkPtrs_t
+# include <kws/fcl/macros.hh>
 
 namespace kws
 {
