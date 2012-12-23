@@ -23,12 +23,10 @@
 
 # include <KineoUtility/kitDefine.h>
 
-namespace kws
+namespace kite_fcl_bridge
 {
-  namespace fcl
-  {
-    KIT_PREDEF_CLASS (Body);
-  } // end of namespace fcl.
-} // end of namespace kcd.
+  KIT_PREDEF_CLASS (Body);
+  KIT_PREDEF_CLASS (Polyhedron);
+} // end of namespace kite_fcl_bridge.
 
 #endif //! KITE_FCL_BRIDGE_FWD_HH

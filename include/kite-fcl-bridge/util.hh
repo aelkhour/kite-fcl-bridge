@@ -21,34 +21,31 @@
 #ifndef KITE_FCL_BRIDGE_UTIL_HH
 # define KITE_FCL_BRIDGE_UTIL_HH
 
-# include <kws/fcl/types.hh>
+# include <kite-fcl-bridge/types.hh>
 
-namespace kws
+namespace kite_fcl_bridge
 {
-  namespace fcl
+  inline void toMatFromKitMat (matrix4_t& dst, const CkitMat4& src)
   {
-    inline void toMatFromKitMat (matrix4_t& dst, const CkitMat4& src)
-    {
-      matrix3_t rotation;
-      point_t translation;
+    matrix3_t rotation;
+    point_t translation;
       
-      for (int i = 0; i < 3; ++i)
-	for (int j = 0; j < 3; ++j)
-	  rotation(i,j) = src(i,j);
+    for (int i = 0; i < 3; ++i)
       for (int j = 0; j < 3; ++j)
-	translation[j] = src(3,j);
+	rotation(i,j) = src(i,j);
+    for (int j = 0; j < 3; ++j)
+      translation[j] = src(3,j);
 
-      dst.setTransform (rotation, translation);
-    }
+    dst.setTransform (rotation, translation);
+  }
     
-    inline void toPointFromKitPoint (point_t& dst, const CkitPoint3& src)
-    {
-      dst[0] = src[0];
-      dst[1] = src[1];
-      dst[2] = src[2];
-    }
+  inline void toPointFromKitPoint (point_t& dst, const CkitPoint3& src)
+  {
+    dst[0] = src[0];
+    dst[1] = src[1];
+    dst[2] = src[2];
+  }
 
-  } // end of namespace fcl.
-} // end of namespace kws.
+} // end of namespace kite_fcl_bridge.
 
 #endif //! KITE_FCL_BRIDGE_UTIL_HH

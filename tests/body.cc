@@ -21,11 +21,11 @@
 #include <boost/test/unit_test.hpp>
 #include <boost/test/output_test_stream.hpp>
 
-#include <kws/fcl/body.hh>
+#include <kite-fcl-bridge/body.hh>
 
 using boost::test_tools::output_test_stream;
 
 BOOST_AUTO_TEST_CASE (body)
 {
-  kws::fcl::BodyShPtr body = kws::fcl::Body::create ();
+  kite_fcl_bridge::BodyShPtr body = kite_fcl_bridge::Body::create ();
 }

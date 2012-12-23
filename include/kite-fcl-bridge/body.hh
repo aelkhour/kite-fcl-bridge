@@ -23,13 +23,11 @@
 
 # include <KineoWorks2/kwsBody.h>
 
-# include <kws/fcl/fwd.hh>
-# include <kws/fcl/types.hh>
+# include <kite-fcl-bridge/fwd.hh>
+# include <kite-fcl-bridge/types.hh>
 
-namespace kws
+namespace kite_fcl_bridge
 {
-  namespace fcl
-  {
     /// \brief KineoWorks FCL Body.
     ///
     /// This class wraps the flexible collision library (FCL) to allow
@@ -95,7 +93,6 @@ namespace kws
       mutable distanceResult_t distanceResult_;
     };
 
-  } // end of namespace fcl.
-} // end of namespace kws.
+} // end of namespace kite_fcl_bridge.
 
 #endif //! KITE_FCL_BRIDGE_BODY_HH
