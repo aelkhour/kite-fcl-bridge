@@ -23,6 +23,7 @@
 
 # include <fcl/collision_object.h>
 # include <fcl/collision_data.h>
+# include <fcl/BVH/BVH_model.h>
 
 /// \def KITE_FCL_DEFINE_TYPES(T, NAME)
 ///
@@ -51,6 +52,7 @@ namespace kws
     /// \brief Import types from fcl.
     KITE_FCL_DEFINE_TYPES(::fcl::CollisionGeometry, geometry);
     KITE_FCL_DEFINE_TYPES(::fcl::CollisionObject, object);
+    KITE_FCL_DEFINE_TYPES(::fcl::BVHModel< ::fcl::OBB>, polyhedron);
 
     /// \brief Import types from fcl.
     typedef ::fcl::FCL_REAL value_type;

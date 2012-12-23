@@ -26,7 +26,6 @@
 # include <boost/foreach.hpp>
 
 # include <fcl/BVH/BV_fitter.h>
-# include <fcl/BVH/BVH_model.h>
 # include <fcl/collision.h>
 # include <fcl/distance.h>
 
@@ -88,7 +87,7 @@ namespace kws
 	    {
 	      geometryConstShPtr_t geometry (object->getCollisionGeometry ());
 	      numVertices +=
-		KIT_DYNAMIC_PTR_CAST (const ::fcl::BVHModel< ::fcl::OBB>,
+		KIT_DYNAMIC_PTR_CAST (const polyhedron_t,
 				      geometry)->num_vertices;
 	    }
 	}
@@ -103,12 +102,11 @@ namespace kws
 	  if (object->getObjectType () == ::fcl::OT_BVH)
 	    {
 	      geometryConstShPtr_t geometry (object->getCollisionGeometry ());
-	      boost::shared_ptr<const ::fcl::BVHModel< ::fcl::OBB> > bvh =
-		KIT_DYNAMIC_PTR_CAST (const ::fcl::BVHModel< ::fcl::OBB>,
-				      geometry);
-	      for (unsigned i = 0; i < bvh->num_vertices; ++i)
+	      polyhedronConstShPtr_t polyhedron =
+		KIT_DYNAMIC_PTR_CAST (const polyhedron_t, geometry);
+	      for (unsigned i = 0; i < polyhedron->num_vertices; ++i)
 		{
-		  vertices[k] = bvh->vertices[i];
+		  vertices[k] = polyhedron->vertices[i];
 		  indices[k] = k;
 		  ++k;
 		}
