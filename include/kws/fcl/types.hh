@@ -22,17 +22,45 @@
 # define KWS_FCL_BRIDGE_TYPES_HH
 
 # include <fcl/collision_object.h>
+# include <fcl/collision_data.h>
+
+/// \def KITE_FCL_DEFINE_TYPES(T, NAME)
+///
+/// Create typedefs from class.
+///
+/// This macro defines new pointer and vector types from \a T and
+/// prefixes them with \a NAME.
+///
+/// \param T class name
+/// \param Name desired name
+# define KITE_FCL_DEFINE_TYPES(T, NAME)				\
+  typedef T NAME##_t;						\
+  typedef T* NAME##Ptr_t;					\
+  typedef boost::shared_ptr<T> NAME##ShPtr_t;			\
+  typedef boost::shared_ptr<const T> NAME##ConstShPtr_t;	\
+  typedef boost::weak_ptr<T> NAME##WkPtr_t;			\
+  typedef std::vector<T> NAME##s_t;				\
+  typedef std::vector<T*> NAME##Ptrs_t;				\
+  typedef std::vector<boost::shared_ptr<T> > NAME##ShPtrs_t;	\
+  typedef std::vector<boost::weak_ptr<T> > NAME##WkPtrs_t
 
 namespace kws
 {
   namespace fcl
   {
     /// \brief Import types from fcl.
-    typedef ::fcl::CollisionGeometry geometry_t;
-    typedef ::fcl::CollisionObject object_t;
+    KITE_FCL_DEFINE_TYPES(::fcl::CollisionGeometry, geometry);
+    KITE_FCL_DEFINE_TYPES(::fcl::CollisionObject, object);
+
+    /// \brief Import types from fcl.
     typedef ::fcl::FCL_REAL value_type;
     typedef ::fcl::Vec3f point_t;
     typedef ::fcl::Transform3f matrix4_t;
+    typedef ::fcl::Matrix3f matrix3_t;
+    typedef ::fcl::CollisionRequest collisionRequest_t;
+    typedef ::fcl::CollisionResult collisionResult_t;
+    typedef ::fcl::DistanceRequest distanceRequest_t;
+    typedef ::fcl::DistanceResult distanceResult_t;
   } // end of namespace fcl.
 } // end of namespace kws.
 

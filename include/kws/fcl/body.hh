@@ -58,6 +58,18 @@ namespace kws
       bool isColliding (const CCollisionAnalysisParameters& analysisParameters,
 			double& distance);
 
+      /// \brief Set inner objects.
+      void innerObjects (const objectShPtrs_t innerObjects);
+
+      /// \brief Get inner objects.
+      const objectShPtrs_t innerObjects () const;
+
+      /// \brief Set outer objects.
+      void outerObjects (const objectShPtrs_t outerObjects);
+
+      /// \brief Get outer objects.
+      const objectShPtrs_t outerObjects () const;
+
     protected:
       /// \brief Constructor.
       explicit Body ();
@@ -73,6 +85,14 @@ namespace kws
 
     private:
       BodyWkPtr wkPtr_;
+      objectShPtrs_t innerObjects_;
+      objectShPtrs_t outerObjects_;
+
+      mutable matrix4_t transform_;
+      mutable collisionRequest_t collisionRequest_;
+      mutable collisionResult_t collisionResult_;
+      mutable distanceRequest_t distanceRequest_;
+      mutable distanceResult_t distanceResult_;
     };
 
   } // end of namespace fcl.
