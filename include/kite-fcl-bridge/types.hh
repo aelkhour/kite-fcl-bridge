@@ -27,7 +27,7 @@
 
 # include <kws/fcl/macros.hh>
 
-namespace kws
+namespace kite
 {
   namespace fcl
   {
