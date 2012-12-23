@@ -18,8 +18,8 @@
 
 /// \brief Declaration of types.
 
-#ifndef KWS_FCL_BRIDGE_TYPES_HH
-# define KWS_FCL_BRIDGE_TYPES_HH
+#ifndef KITE_FCL_BRIDGE_TYPES_HH
+# define KITE_FCL_BRIDGE_TYPES_HH
 
 # include <fcl/collision_object.h>
 # include <fcl/collision_data.h>
@@ -64,4 +64,4 @@ namespace kws
   } // end of namespace fcl.
 } // end of namespace kws.
 
-#endif //! KWS_FCL_BRIDGE_TYPES_HH
+#endif //! KITE_FCL_BRIDGE_TYPES_HH

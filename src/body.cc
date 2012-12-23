@@ -20,8 +20,8 @@
 ///
 /// \brief Implementation of Body.
 
-#ifndef KWS_FCL_BRIDGE_BODY_CC
-# define KWS_FCL_BRIDGE_BODY_CC
+#ifndef KITE_FCL_BRIDGE_BODY_CC
+# define KITE_FCL_BRIDGE_BODY_CC
 
 # include <boost/foreach.hpp>
 
@@ -279,4 +279,4 @@ namespace kws
   } // end of namespace fcl.
 } // end of namespace kws.
 
-#endif //! KWS_FCL_BRIDGE_BODY_CC
+#endif //! KITE_FCL_BRIDGE_BODY_CC

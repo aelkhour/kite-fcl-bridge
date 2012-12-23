@@ -18,8 +18,8 @@
 
 /// \brief Forward declarations.
 
-#ifndef KWS_FCL_BRIDGE_FWD_HH
-# define KWS_FCL_BRIDGE_FWD_HH
+#ifndef KITE_FCL_BRIDGE_FWD_HH
+# define KITE_FCL_BRIDGE_FWD_HH
 
 # include <KineoUtility/kitDefine.h>
 
@@ -31,4 +31,4 @@ namespace kws
   } // end of namespace fcl.
 } // end of namespace kcd.
 
-#endif //! KWS_FCL_BRIDGE_FWD_HH
+#endif //! KITE_FCL_BRIDGE_FWD_HH

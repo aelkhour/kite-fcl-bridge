@@ -18,8 +18,8 @@
 
 /// \brief Declaration of utility functions.
 
-#ifndef KWS_FCL_BRIDGE_UTIL_HH
-# define KWS_FCL_BRIDGE_UTIL_HH
+#ifndef KITE_FCL_BRIDGE_UTIL_HH
+# define KITE_FCL_BRIDGE_UTIL_HH
 
 # include <kws/fcl/types.hh>
 
@@ -51,4 +51,4 @@ namespace kws
   } // end of namespace fcl.
 } // end of namespace kws.
 
-#endif //! KWS_FCL_BRIDGE_UTIL_HH
+#endif //! KITE_FCL_BRIDGE_UTIL_HH

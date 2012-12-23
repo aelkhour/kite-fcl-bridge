@@ -18,8 +18,8 @@
 
 /// \brief Declaration of Body class that wraps FCL.
 
-#ifndef KWS_FCL_BRIDGE_BODY_HH
-# define KWS_FCL_BRIDGE_BODY_HH
+#ifndef KITE_FCL_BRIDGE_BODY_HH
+# define KITE_FCL_BRIDGE_BODY_HH
 
 # include <KineoWorks2/kwsBody.h>
 
@@ -98,4 +98,4 @@ namespace kws
   } // end of namespace fcl.
 } // end of namespace kws.
 
-#endif //! KWS_FCL_BRIDGE_BODY_HH
+#endif //! KITE_FCL_BRIDGE_BODY_HH
