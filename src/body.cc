@@ -70,7 +70,7 @@ namespace kite_fcl_bridge
   CkwsBodyShPtr
   Body::clone () const
   {
-    return Body::createCopy (wkPtr_.lock ());
+    return Body::createCopy (weakPtr_.lock ());
   }
 
   double
@@ -235,7 +235,7 @@ namespace kite_fcl_bridge
   Body::
   Body ()
     : CkwsBody (true),
-      wkPtr_ (),
+      weakPtr_ (),
       innerObjects_ (),
       outerObjects_ (),
       transform_ (),
@@ -254,12 +254,12 @@ namespace kite_fcl_bridge
   }
 
   ktStatus Body::
-  init (const BodyWkPtr& wkPtr)
+  init (const BodyWkPtr& weakPtr)
   {
-    ktStatus result = CkwsBody::init (wkPtr);
+    ktStatus result = CkwsBody::init (weakPtr);
 
     if (KD_OK == result)
-      wkPtr_ = wkPtr;
+      weakPtr_ = weakPtr;
 
     return result;
   }

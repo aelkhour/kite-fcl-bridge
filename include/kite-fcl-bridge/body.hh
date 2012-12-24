@@ -82,7 +82,7 @@ namespace kite_fcl_bridge
       void placeBody (const CkitMat4& pos);
 
     private:
-      BodyWkPtr wkPtr_;
+      BodyWkPtr weakPtr_;
       objectShPtrs_t innerObjects_;
       objectShPtrs_t outerObjects_;
 
