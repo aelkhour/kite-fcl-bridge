@@ -14,9 +14,11 @@ SET(PROJECT_URL "")
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
 SET(${PROJECT_NAME}_HEADERS
-  include/kite/fcl/fwd.hh
-  include/kite/fcl/types.hh
-  include/kite/fcl/body.hh
+  include/kite-fcl-bridge/fwd.hh
+  include/kite-fcl-bridge/macros.hh
+  include/kite-fcl-bridge/types.hh
+  include/kite-fcl-bridge/util.hh
+  include/kite-fcl-bridge/body.hh
   )
 
 SETUP_PROJECT()
