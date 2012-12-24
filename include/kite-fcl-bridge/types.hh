@@ -37,6 +37,7 @@ namespace kite_fcl_bridge
   /// \brief Import types from fcl.
   typedef ::fcl::FCL_REAL value_type;
   typedef ::fcl::Vec3f point_t;
+  typedef ::fcl::Triangle triangle_t;
   typedef ::fcl::Transform3f matrix4_t;
   typedef ::fcl::Matrix3f matrix3_t;
   typedef ::fcl::CollisionRequest collisionRequest_t;
