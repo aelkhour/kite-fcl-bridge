@@ -46,6 +46,13 @@ namespace kite_fcl_bridge
     dst[2] = src[2];
   }
 
+  inline void toKitPointFromPoint (CkitPoint3& dst, const point_t& src)
+  {
+    dst[0] = src[0];
+    dst[1] = src[1];
+    dst[2] = src[2];
+  }
+
 } // end of namespace kite_fcl_bridge.
 
 #endif //! KITE_FCL_BRIDGE_UTIL_HH
