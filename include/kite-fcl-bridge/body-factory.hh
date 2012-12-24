@@ -16,18 +16,42 @@
 // License along with kite-fcl-bridge.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-/// \brief Forward declarations.
+/// \brief Declaration of BodyFactory class that builds bodies.
 
-#ifndef KITE_FCL_BRIDGE_FWD_HH
-# define KITE_FCL_BRIDGE_FWD_HH
+#ifndef KITE_FCL_BRIDGE_BODYFACTORY_HH
+# define KITE_FCL_BRIDGE_BODYFACTORY_HH
 
-# include <KineoUtility/kitDefine.h>
+# include <KineoModel/kppFactory.h>
+
+# include <kite-fcl-bridge/fwd.hh>
+# include <kite-fcl-bridge/body.hh>
 
 namespace kite_fcl_bridge
 {
-  KIT_PREDEF_CLASS (Body);
-  KIT_PREDEF_CLASS (BodyFactory);
-  KIT_PREDEF_CLASS (Polyhedron);
-} // end of namespace kite_fcl_bridge.
+  class BodyFactory
+    : public CkppFactory<BodyShPtr>
+  {
+  public:
+    /// \brief Destructor.
+    virtual ~BodyFactory ();
 
-#endif //! KITE_FCL_BRIDGE_FWD_HH
+    /// \brief Create body factory.
+    static BodyFactoryShPtr create ();
+
+    /// \brief Create a new body.
+    virtual BodyShPtr make () const;
+
+  protected:
+    /// \brief Constructor.
+    BodyFactory ();
+
+    /// \brief Initialize body factory.
+    ktStatus init (const BodyFactoryWkPtr weakPtr);
+
+  private:
+    BodyFactoryWkPtr weakPtr_;
+  };
+
+} // end of namespace kite_fcl_bridge
+
+#endif // KITE_FCL_BRIDGE_BODYFACTORY_HH

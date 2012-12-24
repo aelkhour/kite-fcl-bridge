@@ -19,6 +19,8 @@ SET(${PROJECT_NAME}_HEADERS
   include/kite-fcl-bridge/types.hh
   include/kite-fcl-bridge/util.hh
   include/kite-fcl-bridge/body.hh
+  include/kite-fcl-bridge/body-factory.hh
+  include/kite-fcl-bridge/polyhedron.hh
   )
 
 SETUP_PROJECT()
