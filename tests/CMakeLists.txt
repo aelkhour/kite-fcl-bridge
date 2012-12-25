@@ -27,3 +27,4 @@ ENDMACRO(ADD_TESTCASE)
 
 # Generated test.
 ADD_TESTCASE(body)
+ADD_TESTCASE(polyhedron)
