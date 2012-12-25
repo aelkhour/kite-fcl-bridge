@@ -209,32 +209,32 @@ namespace kite_fcl_bridge
   }
 
   void
-  Body::innerObjects (const objectShPtrs_t innerObjects)
+  Body::innerFclObjects (const objectShPtrs_t innerObjects)
   {
     innerObjects_ = innerObjects;
   }
 
   const objectShPtrs_t
-  Body::innerObjects () const
+  Body::innerFclObjects () const
   {
     return innerObjects_;
   }
 
   void
-  Body::outerObjects (const objectShPtrs_t outerObjects)
+  Body::outerFclObjects (const objectShPtrs_t outerObjects)
   {
     outerObjects_ = outerObjects;
   }
 
   const objectShPtrs_t
-  Body::outerObjects () const
+  Body::outerFclObjects () const
   {
     return outerObjects_;
   }
 
   Body::
   Body ()
-    : CkwsBody (true),
+    : CkwsKCDBody (true),
       weakPtr_ (),
       innerObjects_ (),
       outerObjects_ (),
@@ -249,8 +249,8 @@ namespace kite_fcl_bridge
   Body::
   Body (const Body& body)
   {
-    innerObjects_ = body.innerObjects ();
-    outerObjects_ = body.outerObjects ();
+    innerObjects_ = body.innerFclObjects ();
+    outerObjects_ = body.outerFclObjects ();
   }
 
   ktStatus Body::

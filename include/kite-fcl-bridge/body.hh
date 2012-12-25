@@ -21,7 +21,7 @@
 #ifndef KITE_FCL_BRIDGE_BODY_HH
 # define KITE_FCL_BRIDGE_BODY_HH
 
-# include <KineoWorks2/kwsBody.h>
+# include <kwsKcd2/kwsKCDBody.h>
 
 # include <kite-fcl-bridge/fwd.hh>
 # include <kite-fcl-bridge/types.hh>
@@ -34,7 +34,7 @@ namespace kite_fcl_bridge
     /// collision detection in the KineoWorks motion planning
     /// algorithms.
     class Body
-      : public CkwsBody
+      : public CkwsKCDBody
     {
     public:
       /// \brief Destructor.
@@ -57,16 +57,16 @@ namespace kite_fcl_bridge
 			double& distance);
 
       /// \brief Set inner objects.
-      void innerObjects (const objectShPtrs_t innerObjects);
+      void innerFclObjects (const objectShPtrs_t innerObjects);
 
       /// \brief Get inner objects.
-      const objectShPtrs_t innerObjects () const;
+      const objectShPtrs_t innerFclObjects () const;
 
       /// \brief Set outer objects.
-      void outerObjects (const objectShPtrs_t outerObjects);
+      void outerFclObjects (const objectShPtrs_t outerObjects);
 
       /// \brief Get outer objects.
-      const objectShPtrs_t outerObjects () const;
+      const objectShPtrs_t outerFclObjects () const;
 
     protected:
       /// \brief Constructor.
