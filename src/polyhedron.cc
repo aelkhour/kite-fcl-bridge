@@ -128,6 +128,7 @@ namespace kite_fcl_bridge
     point_t fclPoint;
     toPointFromKitPoint (fclPoint, point);
     points_.push_back (fclPoint);
+    return KD_OK;
   }
 
   ktStatus Polyhedron::
@@ -135,9 +136,8 @@ namespace kite_fcl_bridge
 	       unsigned int i_p2,
 	       unsigned int i_p3)
   {
-    polyhedron_->addTriangle (polyhedron_->vertices[i_p1],
-			      polyhedron_->vertices[i_p2],
-			      polyhedron_->vertices[i_p3]);
+    polyhedron_t::addTriangle (vertices[i_p1], vertices[i_p2], vertices[i_p3]);
+    return KD_OK;
   }
 
   void Polyhedron::
@@ -150,13 +150,13 @@ namespace kite_fcl_bridge
   unsigned int Polyhedron::
   countPoints () const
   {
-    return polyhedron_->num_vertices;
+    return num_vertices;
   }
 
   unsigned int Polyhedron::
   countTriangles () const
   {
-    return polyhedron_->num_tris;
+    return num_tris;
   }
 
   void Polyhedron::
@@ -165,7 +165,7 @@ namespace kite_fcl_bridge
 	       unsigned int &o_p2,
 	       unsigned int &o_p3) const
   {
-    triangle_t triangle = polyhedron_->tri_indices[i_rank];
+    triangle_t triangle = tri_indices[i_rank];
     o_p1 = triangle[0];
     o_p2 = triangle[1];
     o_p3 = triangle[2];
@@ -175,7 +175,7 @@ namespace kite_fcl_bridge
   getPoint (const unsigned int i_rank,
 	    float &o_x, float &o_y, float &o_z) const
   {
-    point_t point = polyhedron_->vertices[i_rank];
+    point_t point = vertices[i_rank];
     o_x = point[0];
     o_y = point[1];
     o_z = point[2];
@@ -185,7 +185,7 @@ namespace kite_fcl_bridge
   getPoint (const unsigned int i_rank,
 	    CkitPoint3 &o_point) const
   {
-    point_t point = polyhedron_->vertices[i_rank];
+    point_t point = vertices[i_rank];
     toKitPointFromPoint (o_point, point);
   }
 
@@ -215,7 +215,7 @@ namespace kite_fcl_bridge
   Polyhedron::
   Polyhedron ()
     : CkppPolyhedron (),
-      polyhedron_ (),
+      polyhedron_t (),
       absTransform_ (),
       relTransform_ (),
       points_ ()
@@ -231,8 +231,6 @@ namespace kite_fcl_bridge
     if (KD_OK == success)
       {
 	weakPtr_ = weakPtr;
-	polyhedronPtr_t ptr = new polyhedron_t ();
-	polyhedron_ = polyhedronShPtr_t (ptr);
 
 	return KD_OK;
       }

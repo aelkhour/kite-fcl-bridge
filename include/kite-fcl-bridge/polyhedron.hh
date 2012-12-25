@@ -30,7 +30,9 @@
 
 namespace kite_fcl_bridge
 {
-  class Polyhedron : public CkppPolyhedron
+  class Polyhedron
+    : public CkppPolyhedron,
+      public polyhedron_t
   {
   public:
     /// \brief Destructor
@@ -124,7 +126,6 @@ namespace kite_fcl_bridge
   private:
     PolyhedronWkPtr weakPtr_;
 
-    polyhedronShPtr_t polyhedron_;
     CkitMat4 absTransform_;
     CkitMat4 relTransform_;
     std::vector<point_t> points_;
